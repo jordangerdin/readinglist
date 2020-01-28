@@ -192,6 +192,8 @@ class BookStore:
             
             if book_data:
                 book = Book(book_data['title'], book_data['author'], book_data['read'], book_data['rowid'])
+            else:
+                return None
                     
             con.close()            
             
