@@ -26,6 +26,7 @@ def create_menu():
     menu.add_option('4', 'Show Read Books', show_read_books)
     menu.add_option('5', 'Show All Books', show_all_books)
     menu.add_option('6', 'Change Book Read Status', change_read)
+    menu.add_option('7', 'Delete a book', delete_book)
     menu.add_option('Q', 'Quit', quit_program)
 
     return menu
@@ -34,7 +35,7 @@ def create_menu():
 def add_book():
     new_book = ui.get_book_info()
     new_book.save()
-    
+
 
 def show_read_books():
     read_books = store.get_books_by_read_value(True)
@@ -60,15 +61,25 @@ def search_book():
 def change_read():
 
     book_id = ui.get_book_id()
-    book = store.get_book_by_id(book_id)  
+    book = store.get_book_by_id(book_id)
     if (book == None):
         print("\n**Error: Book not found in database.**\n")
         return
     else:
-        new_read = ui.get_read_value()     
-        book.read = new_read 
+        new_read = ui.get_read_value()
+        book.read = new_read
         book.save()
-    
+
+def delete_book():
+
+    try:
+        book_id = ui.get_book_id()
+        book = store.get_book_by_id(book_id)
+        book.delete()
+        print("\nBook was successfully deleted!\n")
+
+    except:
+        print("\nError: Book Not Found\n")
 
 def quit_program():
     ui.message('Thanks and bye!')
