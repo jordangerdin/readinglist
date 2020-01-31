@@ -54,7 +54,7 @@ class Book:
 
 
     def __hash__(self):
-        """ And Python maks us implement __hash__ if __eq__ is overriden """
+        """ And Python makes us implement __hash__ if __eq__ is overriden """
         return hash((self.id, self.title, self.author, self.read))
 
 
