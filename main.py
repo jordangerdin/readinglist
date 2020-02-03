@@ -35,7 +35,7 @@ def add_book():
     try:
         new_book = ui.get_book_info()
         new_book.save()
-    except: 
+    except:
         print("**This book is already in the store.**\n")
 
 def show_read_books():
@@ -62,7 +62,7 @@ def search_book():
 def change_read():
     book_id = ui.get_book_id()
     book = store.get_book_by_id(book_id)
-    
+
     if (book == None):
         print("\n**Error: Book not found in database.**\n")
         return
