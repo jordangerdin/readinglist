@@ -77,7 +77,7 @@ def change_read():
         book.save()
 
 def quit_program():
-    ui.message('Thanks and bye!')
+    ui.message('Thank you for using the program, Goodbye.')
 
 
 if __name__ == '__main__':
