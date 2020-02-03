@@ -20,12 +20,12 @@ def main():
 
 def create_menu():
     menu = Menu()
-    menu.add_option('1', 'Add Book', add_book)
-    menu.add_option('2', 'Search For Book', search_book)
-    menu.add_option('3', 'Show Unread Books', show_unread_books)
-    menu.add_option('4', 'Show Read Books', show_read_books)
-    menu.add_option('5', 'Show All Books', show_all_books)
-    menu.add_option('6', 'Change Book Read Status', change_read)
+    menu.add_option('A', 'Add Book', add_book)
+    menu.add_option('S', 'Search For Book', search_book)
+    menu.add_option('U', 'Show Unread Books', show_unread_books)
+    menu.add_option('R', 'Show Read Books', show_read_books)
+    menu.add_option('B', 'Show All Books', show_all_books)
+    menu.add_option('C', 'Change Book Read Status', change_read)
     menu.add_option('Q', 'Quit', quit_program)
 
     return menu
