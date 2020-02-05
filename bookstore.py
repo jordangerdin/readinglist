@@ -17,7 +17,7 @@ class Book:
 
         self.bookstore = BookStore()
 
-
+    #if the book has id, update it. otherwice add it into a database.
     def save(self):
         if self.id:
             self.bookstore._update_book(self)
