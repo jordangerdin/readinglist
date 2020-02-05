@@ -17,7 +17,7 @@ class Book:
 
         self.bookstore = BookStore()
 
-
+    #if the book has id, update it. otherwice add it into a database.
     def save(self):
         if self.id:
             self.bookstore._update_book(self)
@@ -30,7 +30,7 @@ class Book:
 
 
     def __str__(self):
-        read_status = 'have' if self.read else 'have not'
+        read_status = 'have' if self.read else 'haven\'t'
         return f'ID {self.id}, Title: {self.title}, Author: {self.author}. You {read_status} read this book.'
 
 
@@ -178,7 +178,7 @@ class BookStore:
 
 
         def get_book_by_id(self, id):
-            """ Searches list for Book with given ID,
+            """ Searches bookstore database for Book with given ID,
             :param id the ID to search for
             :returns the book, if found, or None if book not found.
             """
