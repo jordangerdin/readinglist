@@ -26,6 +26,7 @@ def create_menu():
     menu.add_option('4', 'Show Read Books', show_read_books)
     menu.add_option('5', 'Show All Books', show_all_books)
     menu.add_option('6', 'Change Book Read Status', change_read)
+    menu.add_option('7', 'Delete a book', delete_book)
     menu.add_option('Q', 'Quit', quit_program)
 
     return menu
@@ -37,6 +38,7 @@ def add_book():
         new_book.save()
     except: 
         ui.message("**This book is already in the store.**\n")
+
 
 def show_read_books():
     read_books = store.get_books_by_read_value(True)
@@ -54,7 +56,12 @@ def show_all_books():
 
 
 def search_book():
+    # while true:
     search_term = ui.ask_question('Enter search term, will match partial authors or titles.')
+        # if(not search_term):
+        #     print("You cannot enter in a blank string")
+        # else:
+        #     break
     matches = store.book_search(search_term)
     ui.show_books(matches)
 
@@ -62,7 +69,7 @@ def search_book():
 def change_read():
     book_id = ui.get_book_id()
     book = store.get_book_by_id(book_id)
-    
+
     if (book == None):
         ui.message("\n**Error: Book not found in database.**\n")
         return
@@ -76,8 +83,21 @@ def change_read():
         book.read = new_read
         book.save()
 
+
+def delete_book():
+
+    try:
+        book_id = ui.get_book_id()
+        book = store.get_book_by_id(book_id)
+        book.delete()
+        print("\nBook was successfully deleted!\n")
+
+    except:
+        print("\nError: Book Not Found\n")
+
+    
 def quit_program():
-    ui.message('Thanks and bye!')
+    ui.message('Thank you for using the program, Goodbye.')
 
 
 if __name__ == '__main__':

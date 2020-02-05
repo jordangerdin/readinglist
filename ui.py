@@ -73,4 +73,11 @@ def ask_question(question):
     """ Ask user question
     :param: the question to ask
     :returns: user's response """
-    return input(question)
+
+    while True:
+        search_term = input(question)
+        if(not search_term):
+            print("You cannot enter nothing as a search term, Please enter a search term you want to search.\n")
+        else:
+            break
+    return search_term
