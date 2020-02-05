@@ -66,9 +66,9 @@ def search_book():
 
 def change_read():
     book_id = ui.get_book_id()
-    book = store.get_book_by_id(book_id)
-
-    if (book == None):
+    book = store.get_book_by_id(book_id)  
+    
+    if book is None:
         print("\n**Error: Book not found in database.**\n")
         return
     else:
